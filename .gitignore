@@ -1,0 +1,4 @@
+.settings/
+lib/
+objs/
+characterPatternDrawer_tests
