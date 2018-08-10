@@ -10,7 +10,7 @@ characterPatternDrawer: $(OBJECTS)
 build: characterPatternDrawer
 
 clean_build:
-	rm -f characterPatternDrawer src/*.o
+	rm -f characterPatternDrawer $(OBJECTS)
 
 clean_tests:
 	make -f Makefile.tests clean
