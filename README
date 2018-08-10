@@ -1,0 +1,29 @@
+This program was written on a Linux computer, instructions should be
+similar for a mac but I have no way to try it.
+
+To build the command line program run:
+$ make build
+
+This will build the commandline program called characterPatternDrawer.
+
+To run it you just need to run the program passing the parameters shown:
+./characterPatternDrawer tree|x <row amount>
+
+For unit testing I used the cpputest framework version 3.8:
+	https://cpputest.github.io/
+You will need to download and build it.
+This are the steps I followed to build cpputest:
+
+$ cd <path to cpputest extraction>
+$ autogen.sh
+$ configure
+$ make
+
+To Run the tests you will need to create the CPPUTEST_HOME pointing to
+the path where you extracted and build cpputest in the previous step.
+And then to build and run the tests you just type make test from the to
+of this project.
+
+$ export CPPUTEST_HOME=<path to cpputest extraction>
+$ make test
+
