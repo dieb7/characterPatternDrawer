@@ -2,3 +2,6 @@
 lib/
 objs/
 characterPatternDrawer_tests
+*.o
+src/*.o
+characterPatternDrawer

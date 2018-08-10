@@ -1,41 +1,22 @@
-#Set this to @ to keep the makefile quiet
-SILENCE = @
+CPPFLAGS=-g -std=c++0x -Iinclude -Wno-c++14-compat -Wall -Werror -Wswitch-default -Wconversion -Wswitch-enum
+LDFLAGS=-g
+OBJECTS=characterPatternDrawer.o src/PatternDrawer.o src/PatternFactory.o src/TreeCharacterRow.o src/XCharacterRow.o
 
-#---- Outputs ----#
-COMPONENT_NAME = characterPatternDrawer
-#Set this to @ to keep the makefile quiet
-SILENCE = @
+all: build test
 
-#--- Inputs ----#
-PROJECT_HOME_DIR = .
-ifeq "$(CPPUTEST_HOME)" ""
-    CPPUTEST_HOME = ../CppUTest
-endif
-CPP_PLATFORM = Gcc
+characterPatternDrawer: $(OBJECTS)
+	g++ $(LDFLAGS) -o characterPatternDrawer $(OBJECTS) $(LDLIBS) 
+	
+build: characterPatternDrawer
 
-SRC_DIRS = \
-    src
+clean_build:
+	rm -f characterPatternDrawer src/*.o
 
-# to pick specific files (rather than directories) use this:    
-SRC_FILES = 
+clean_tests:
+	make -f Makefile.tests clean
 
-TEST_SRC_DIRS = \
-    tests \
-    tests/*
+clean: clean_build clean_tests
 
-MOCKS_SRC_DIRS = \
-    mocks \
-
-INCLUDE_DIRS =\
-  .\
-  include \
-  $(CPPUTEST_HOME)/include/ \
-  $(CPPUTEST_HOME)/include/Platforms/Gcc\
-  mocks
-
-CPPUTEST_WARNINGFLAGS = -Wall -Werror -Wswitch-default 
-CPPUTEST_WARNINGFLAGS += -Wconversion -Wswitch-enum
-CPPUTEST_CXXFLAGS += -std=c++0x -Wno-c++14-compat
-
-include $(CPPUTEST_HOME)/build/MakefileWorker.mk
-
+test:
+	make -f Makefile.tests characterPatternDrawer_tests
+	make -f Makefile.tests test
