@@ -76,12 +76,14 @@ TEST(PatternDrawer, drawX)
 	restoreStdout();
 
 	const char * xOutput = ""\
-			"*    *\n"\
-			" *  * \n"\
-			"   *  \n"\
-			" *  * \n"\
-			"*    *\n";
+			"*   *\n"\
+			" * * \n"\
+			"  *  \n"\
+			" * * \n"\
+			"*   *\n";
 
 	STRCMP_EQUAL(xOutput, strCout.str().data());
+
+	delete xfactory;
 }
 
