@@ -8,7 +8,8 @@
 #include "TreeCharacterRow.h"
 
 std::string TreeCharacterRow::produceCharacters() {
-	if (!rowTotal) {
+	// TODO: There are probably nicer ways to do this
+	if (!rowTotal) { // we got nothing to print
 		return std::string("");
 	}
 

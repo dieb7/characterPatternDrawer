@@ -10,6 +10,7 @@
 std::list<CharacterRow*> PatternFactory::createPattern(int rowAmount) {
 	std::list<CharacterRow*> pattern;
 	for (int i = 0; i < rowAmount; i++) {
+		// we create CharacterRow objects and adjust its parameters
 		CharacterRow * characterRow = createCharacterRow();
 		characterRow->setRowTotal(rowAmount);
 		characterRow->setRowIndex(i);
@@ -20,6 +21,7 @@ std::list<CharacterRow*> PatternFactory::createPattern(int rowAmount) {
 
 void PatternFactory::destroyPattern(std::list<CharacterRow*> pattern) {
 	for (auto temp: pattern) {
+		// we iterate the list and destroy every CharacterRow object created
 		delete temp;
 	}
 }

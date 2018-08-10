@@ -14,10 +14,11 @@ PatternDrawer::PatternDrawer() {
 }
 
 void PatternDrawer::draw() {
-	if (patternFactory) {
+	if (patternFactory) { // if we got a pattern factory then lets use it
 		std::list<CharacterRow *> pattern = patternFactory->createPattern(rowTotal);
 
 		for (auto row: pattern) {
+			// we just iterate the list and print its contents to stdout
 			std::cout << row->produceCharacters() << std::endl;
 		}
 

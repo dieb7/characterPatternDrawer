@@ -1,5 +1,9 @@
 /*
  * PatternDrawer.h
+ * This class draws a pattern. It uses a PatternFactory object to create the
+ * CharacterRow objects it needs. This PatternFactory object can be swapped
+ * so that this class can draw different patterns. Besides the PatternFactory
+ * object it needs to know total number of rows for the pattern.
  *
  *  Created on: Aug 10, 2018
  *      Author: diebm
@@ -33,6 +37,10 @@ public:
 		this->rowTotal = rowTotal;
 	}
 
+
+	/**
+	 * Draws a pattern.
+	 */
 	void draw();
 };
 
